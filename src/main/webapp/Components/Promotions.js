@@ -16,7 +16,7 @@ $(document).on("click", "#btnSave", function(event)
 	 $("#alertError").text(""); 
 	 $("#alertError").hide(); 
 	// Form validation-------------------
-	var status = validateInterruptionForm(); 
+	var status = validatePromotionForm(); 
 	if (status != true) 
 	 { 
 		 $("#alertError").text(status); 
@@ -24,16 +24,16 @@ $(document).on("click", "#btnSave", function(event)
 		 return; 
 	 } 
 	// If valid------------------------
-	var type = ($("#hidIntteruptIdSave").val() == "") ? "POST" : "PUT"; 
+	var type = ($("#hidPromoIdSave").val() == "") ? "POST" : "PUT"; 
 	 $.ajax( 
 	 { 
-		 url : "Notices_API", 
+		 url : "Promotions_API", 
 		 type : type, 
-		 data : $("#formInterruptions").serialize(), 
+		 data : $("#formPromotions").serialize(), 
 		 dataType : "text", 
 		 complete : function(response, status) 
 		 { 
-	 		onInterruptionSaveComplete(response.responseText, status); 
+	 		onPromotionsSaveComplete(response.responseText, status); 
 	 	 } 
 	 }); 
 });
@@ -41,12 +41,12 @@ $(document).on("click", "#btnSave", function(event)
 // UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event) 
 { 
-	$("#hidIntteruptIdSave").val($(this).data("interruption_id")); 
+	$("#hidPromoIdSave").val($(this).data("PromotionId")); 
 	$("#subject").val($(this).closest("tr").find('td:eq(0)').text()); 
 	$("#description").val($(this).closest("tr").find('td:eq(1)').text()); 
-	$("#area").val($(this).closest("tr").find('td:eq(2)').text()); 
-	$("#time").val($(this).closest("tr").find('td:eq(3)').text()); 
-	$("#date").val($(this).closest("tr").find('td:eq(4)').text()); 
+	$("#fromDate").val($(this).closest("tr").find('td:eq(2)').text()); 
+	$("#toDate").val($(this).closest("tr").find('td:eq(3)').text()); 
+	$("#conditions").val($(this).closest("tr").find('td:eq(4)').text()); 
 	$("#created_date").val($(this).closest("tr").find('td:eq(5)').text()); 
 });
 
@@ -54,18 +54,18 @@ $(document).on("click", ".btnRemove", function(event)
 { 
 	 $.ajax( 
 	 { 
-		 url : "Notices_API", 
+		 url : "Promotions_API", 
 		 type : "DELETE", 
-		 data : "interruption_id=" + $(this).data("interruption_id"),
+		 data : "PromotionId=" + $(this).data("PromotionId"),
 		 dataType : "text", 
 		 complete : function(response, status) 
 		 { 
-		 	onInterruptionDeleteComplete(response.responseText, status); 
+		 	onPromotionDeleteComplete(response.responseText, status); 
 		 } 
 	  }); 
 });
 // CLIENT-MODEL================================================================
-function validateInterruptionForm() 
+function validatePromotionForm() 
 { 
 	// Subject
 	if ($("#subject").val().trim() == "") 
@@ -77,22 +77,22 @@ function validateInterruptionForm()
 	 { 
 	 	return "Insert description"; 
 	 } 
-	// Area-------------------------------
-	if ($("#area").val().trim() == "") 
+	// From Date-------------------------------
+	if ($("#fromdate").val().trim() == "") 
 	 { 
-		return "Insert Area"; 
-	 } 
-	 
-	 // Time------------------------
-	if ($("#time").val().trim() == "") 
-	 { 
-	 	return "Insert Time"; 
+		return "Insert From Date"; 
 	 } 
 
-	// Date------------------------
-	if ($("#date").val().trim() == "") 
+	// To Date------------------------
+	if ($("#todate").val().trim() == "") 
 	 { 
-	 	return "Insert Date"; 
+	 	return "Insert To Date"; 
+	 } 
+	 
+	 // Conditions ------------------------
+	if ($("#conditions").val().trim() == "") 
+	 { 
+	 	return "Insert Conditions"; 
 	 } 
 	 
 	 // created_date------------------------
@@ -104,7 +104,7 @@ function validateInterruptionForm()
 	return true; 
 }
 
-function onInterruptionSaveComplete(response, status) 
+function onPromotionSaveComplete(response, status) 
 { 
 	if (status == "success") 
 	 { 
@@ -113,7 +113,7 @@ function onInterruptionSaveComplete(response, status)
 	 { 
 		 $("#alertSuccess").text("Successfully saved."); 
 		 $("#alertSuccess").show(); 
-		 $("#divInterruptionsGrid").html(resultSet.data); 
+		 $("#divPromotionsGrid").html(resultSet.data); 
 	 } else if (resultSet.status.trim() == "error") 
 	 { 
 		 $("#alertError").text(resultSet.data); 
@@ -128,12 +128,12 @@ function onInterruptionSaveComplete(response, status)
 		 $("#alertError").text("Unknown error while saving.."); 
 		 $("#alertError").show(); 
 	 } 
-	 $("#hidIntteruptIdSave").val(""); 
-	 $("#formInterruptions")[0].reset(); 
+	 $("#hidPromoIdSave").val(""); 
+	 $("#formPromotions")[0].reset(); 
 }
 
 
-function onInterruptionDeleteComplete(response, status) 
+function onPromotionDeleteComplete(response, status) 
 { 
 	if (status == "success") 
 	 { 
@@ -142,7 +142,7 @@ function onInterruptionDeleteComplete(response, status)
 	 { 
 		 $("#alertSuccess").text("Successfully deleted."); 
 		 $("#alertSuccess").show(); 
-		 $("#divInterruptionsGrid").html(resultSet.data); 
+		 $("#divPromotionsGrid").html(resultSet.data); 
 	 } else if (resultSet.status.trim() == "error") 
 	 { 
 		 $("#alertError").text(resultSet.data); 
