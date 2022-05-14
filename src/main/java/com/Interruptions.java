@@ -87,7 +87,7 @@ public class Interruptions {
 			}
 				
 			 // Prepare the html table to be displayed
-			 output = "<table border='1'><tr>" 
+			 output = "<table border='1' class='table table-responsive'><tr>" 
 					 +"<th>Subject</th><th>Description</th>"
 					 +"<th>Area</th><th>Time</th>" 
 					 +"<th>Date</th><th>Date Created</th>" 

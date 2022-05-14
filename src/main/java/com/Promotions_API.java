@@ -95,7 +95,7 @@ public class Promotions_API extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request); 
-		String output = promObj.deletePromotion(paras.get("PromotionId").toString()); 
+		String output = promObj.deletePromotion(paras.get("promotionId").toString()); 
 		response.getWriter().write(output); 
 	}
 

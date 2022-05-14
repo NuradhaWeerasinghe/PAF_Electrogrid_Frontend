@@ -41,7 +41,7 @@ $(document).on("click", "#btnSave", function(event)
 // UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event) 
 { 
-	$("#hidPromoIdSave").val($(this).data("PromotionId")); 
+	$("#hidPromoIdSave").val($(this).data("promotionId")); 
 	$("#subject").val($(this).closest("tr").find('td:eq(0)').text()); 
 	$("#description").val($(this).closest("tr").find('td:eq(1)').text()); 
 	$("#fromDate").val($(this).closest("tr").find('td:eq(2)').text()); 
@@ -56,7 +56,7 @@ $(document).on("click", ".btnRemove", function(event)
 	 { 
 		 url : "Promotions_API", 
 		 type : "DELETE", 
-		 data : "PromotionId=" + $(this).data("PromotionId"),
+		 data : "promotionId=" + $(this).data("promotionId"),
 		 dataType : "text", 
 		 complete : function(response, status) 
 		 { 
@@ -78,13 +78,13 @@ function validatePromotionForm()
 	 	return "Insert description"; 
 	 } 
 	// From Date-------------------------------
-	if ($("#fromdate").val().trim() == "") 
+	if ($("#fromDate").val().trim() == "") 
 	 { 
 		return "Insert From Date"; 
 	 } 
 
 	// To Date------------------------
-	if ($("#todate").val().trim() == "") 
+	if ($("#toDate").val().trim() == "") 
 	 { 
 	 	return "Insert To Date"; 
 	 } 

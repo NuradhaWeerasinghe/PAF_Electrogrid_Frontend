@@ -37,10 +37,18 @@ if (request.getParameter("hidIntteruptIdDelete") != null) {
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-6">
-				<h1>Notice Management</h1>
-				<h2>Interruptions</h2>
-				<form id="formInterruptions" name="formInterruptions">
+			<div class="col-12">
+				<h1>Notice Management <small> - Interruptions</small></h1>
+				<hr>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-3"> </div>
+			<div class="col-6 shadow-lg p-3 mb-5 bg-body rounded"  >
+				<form id="formInterruptions" class="" name="formInterruptions">
+				<div id="alertSuccess" class="alert alert-success"></div>
+				<div id="alertError" class="alert alert-danger"></div>
+				<br>
 					Subject : <input id="subject" name="subject" type="text"
 						class="form-control form-control-sm"> <br>
 					Description: <input id="description" name="description" type="text"
@@ -57,17 +65,23 @@ if (request.getParameter("hidIntteruptIdDelete") != null) {
 						class="btn btn-primary"> 
 					<input type="hidden" id="hidIntteruptIdSave" name="hidIntteruptIdSave" value="">
 				</form>
-				<div id="alertSuccess" class="alert alert-success"></div>
-				<div id="alertError" class="alert alert-danger"></div>
-				<br>
+			</div>
+			<div class="col-3"></div>
+			
+		</div>
+		<div class="row">
+			<div class="col-12">
+				
+		
 				<div id="divInterruptionsGrid">
 					<%
 					Interruptions intrObj = new Interruptions();
 					out.print(intrObj.readInterruption());
 					%>
-				</div>
+				</div>				
 			</div>
 		</div>
+		
 	</div>
 </body>
 </html>

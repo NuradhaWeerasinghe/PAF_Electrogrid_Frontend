@@ -105,13 +105,13 @@ public class Promotions {
 			// iterate through the rows in the result set
 			while (rs.next()) {
 				
-				String PromotionId = Integer.toString(rs.getInt("PromotionId")); 
+				String promotionId = Integer.toString(rs.getInt("PromotionId")); 
 				String subject = rs.getString("subject"); 
 				String description = rs.getString("description"); 
 				String fromDate =  rs.getString("fromDate"); 
 				String toDate = rs.getString("toDate");
 				String conditions = rs.getString("conditions");
-				String created_date = rs.getString("createdDate ");
+				String created_date = rs.getString("createdDate");
 				
 				// Add into the html table
 				
@@ -123,9 +123,9 @@ public class Promotions {
 				output += "<td>" + created_date + "</td>"; 
 				// buttons
 				 output += "<td><input name='btnUpdate' type='button' value='Update' "
-				+ "class='btnUpdate btn btn-secondary' data-PromotionId='" + PromotionId + "'></td>"
+				+ "class='btnUpdate btn btn-secondary' data-promotionId='" + promotionId + "'></td>"
 				+ "<td><input name='btnRemove' type='button' value='Remove' "
-				+ "class='btnRemove btn btn-danger' data-PromotionId='" + PromotionId + "'></td></tr>"; 
+				+ "class='btnRemove btn btn-danger' data-promotionId='" + promotionId + "'></td></tr>"; 
 					
 					
 			}

@@ -47,9 +47,9 @@ if (request.getParameter("hidPromoIdDelete") != null) {
 						class="form-control form-control-sm"> <br>
 					Description: <input id="description" name="description" type="text"
 						class="form-control form-control-sm"> <br> 
-					From Date: <input id="fromdate" name="fromdate" type="text"
+					From Date: <input id="fromDate" name="fromDate" type="text"
 						class="form-control form-control-sm"> <br> 
-					To Date: <input id="todate" name="todate" type="text"
+					To Date: <input id="toDate" name="toDate" type="text"
 						class="form-control form-control-sm"> <br> 
 					Conditions: <input id="conditions" name="conditions" type="text"
 						class="form-control form-control-sm"> <br> Created
