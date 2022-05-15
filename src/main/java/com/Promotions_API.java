@@ -47,7 +47,7 @@ public class Promotions_API extends HttpServlet {
 				request.getParameter("fromDate"), 
 				request.getParameter("toDate"), 
 				request.getParameter("conditions"),
-				request.getParameter("created_date")
+				request.getParameter("createdDate")
 		);
 		response.getWriter().write(output);
 	}
@@ -64,7 +64,7 @@ public class Promotions_API extends HttpServlet {
 				paras.get("fromDate").toString(),
 				paras.get("toDate").toString(), 
 				paras.get("conditions").toString(), 
-				paras.get("created_date").toString());  
+				paras.get("createdDate").toString());  
 				response.getWriter().write(output);
 	}
 	

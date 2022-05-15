@@ -111,7 +111,7 @@ public class Promotions {
 				String fromDate =  rs.getString("fromDate"); 
 				String toDate = rs.getString("toDate");
 				String conditions = rs.getString("conditions");
-				String created_date = rs.getString("createdDate");
+				String createdDate = rs.getString("createdDate");
 				
 				// Add into the html table
 				
@@ -120,7 +120,7 @@ public class Promotions {
 				output += "<td>" + fromDate + "</td>"; 
 				output += "<td>" + toDate + "</td>"; 
 				output += "<td>" + conditions + "</td>"; 
-				output += "<td>" + created_date + "</td>"; 
+				output += "<td>" + createdDate + "</td>"; 
 				// buttons
 				 output += "<td><input name='btnUpdate' type='button' value='Update' "
 				+ "class='btnUpdate btn btn-secondary' data-promotionId='" + promotionId + "'></td>"

@@ -47,7 +47,7 @@ $(document).on("click", ".btnUpdate", function(event)
 	$("#fromDate").val($(this).closest("tr").find('td:eq(2)').text()); 
 	$("#toDate").val($(this).closest("tr").find('td:eq(3)').text()); 
 	$("#conditions").val($(this).closest("tr").find('td:eq(4)').text()); 
-	$("#created_date").val($(this).closest("tr").find('td:eq(5)').text()); 
+	$("#createdDate").val($(this).closest("tr").find('td:eq(5)').text()); 
 });
 
 $(document).on("click", ".btnRemove", function(event) 
@@ -95,10 +95,10 @@ function validatePromotionForm()
 	 	return "Insert Conditions"; 
 	 } 
 	 
-	 // created_date------------------------
-	if ($("#created_date").val().trim() == "") 
+	 // createdDate------------------------
+	if ($("#createdDate").val().trim() == "") 
 	 { 
-	 	return "Insert created_date"; 
+	 	return "Insert createdDate"; 
 	 } 
 	 
 	return true; 

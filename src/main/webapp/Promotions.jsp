@@ -9,14 +9,14 @@ if (request.getParameter("subject") != null) {
 	if (request.getParameter("hidPromoIdSave") == "") {
 		stsMsg = promObj.insertPromotion(request.getParameter("subject"), request.getParameter("description"),
 		request.getParameter("fromdate"), request.getParameter("todate"), request.getParameter("conditions"),
-		request.getParameter("created_date"));
+		request.getParameter("createdDate"));
 	} else
 		
 	//Update----------------------
 	{
 		stsMsg = promObj.updatePromotion(request.getParameter("hidPromoIdSave"), request.getParameter("subject"),
 		request.getParameter("description"), request.getParameter("fromdate"), request.getParameter("todate"),
-		request.getParameter("conditions"), request.getParameter("created_date"));
+		request.getParameter("conditions"), request.getParameter("createdDate"));
 	}
 	session.setAttribute("statusMsg", stsMsg);
 }
@@ -53,7 +53,7 @@ if (request.getParameter("hidPromoIdDelete") != null) {
 						class="form-control form-control-sm"> <br> 
 					Conditions: <input id="conditions" name="conditions" type="text"
 						class="form-control form-control-sm"> <br> Created
-					Created Date: <input id="created_date" name="created_date" type="text"
+					Created Date: <input id="createdDate" name="createdDate" type="text"
 						class="form-control form-control-sm"> <br> 
 					<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary"> 
 					<input type="hidden" id="hidPromoIdSave" name="hidPromoIdSave" value="">
